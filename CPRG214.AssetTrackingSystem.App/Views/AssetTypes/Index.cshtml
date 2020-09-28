@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CPRG214.AssetTrackingSystem.Domain.AssetType>
+
+@{ ViewData["Title"] = "Asset Types"; }
+
+
+<button class="btn btn-outline-primary mt-5"><a asp-action="Create">Add New Asset Type</a></button>
+<br />
+<br />
+<div class="col-md-6">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })     
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

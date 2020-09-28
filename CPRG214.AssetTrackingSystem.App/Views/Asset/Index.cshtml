@@ -1,0 +1,58 @@
+﻿@model IEnumerable<CPRG214.AssetTrackingSystem.App.Models.AssetViewModel>
+
+@{ 
+    ViewData["Title"] = "Assets";
+}
+
+<button class="btn btn-outline-primary mt-5"><a asp-action="Create">Add New Asset</a></button>
+<br />
+<br />
+<table class="table table-hover col-md-8">
+<thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AssetType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TagNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </th>
+        <th></th>
+    </tr>
+</thead>
+<tbody>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AssetType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.TagNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SerialNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+        </td>
+    </tr>}
+</tbody>
+</table>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            //alert('loaded')
+        });
+    </script>
+}
